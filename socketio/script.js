@@ -22,9 +22,14 @@ function sendMessage() {
     const messageInput = document
         .getElementById('messageInput');
 
-    const message = messageInput.value;
+    const message = messageInput.value.trim();
 
-    socket.emit('chat message', message);
+    if (message !== ''){
 
-    messageInput.value = '';
+        socket.emit('chat message', message);
+
+        messageInput.value = '';
+
+    };
+
 };

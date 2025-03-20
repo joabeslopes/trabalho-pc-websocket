@@ -21,9 +21,14 @@ function sendMessage() {
     const messageInput = document
         .getElementById('messageInput');
 
-    const message = messageInput.value;
+    const message = messageInput.value.trim();
 
-    socket.send(message);
+    if (message !== ''){
 
-    messageInput.value = '';
+        socket.send(message);
+
+        messageInput.value = '';
+
+    };
+
 };
